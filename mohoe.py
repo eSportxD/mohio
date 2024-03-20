@@ -1056,6 +1056,6 @@ http.server.test(
 	HandlerClass=ProxyRequestHandler,
 	ServerClass=ThreadingHTTPServer,
 	protocol="HTTP/1.1",
-	port=8080,
+	port=1490,
 	bind="0.0.0.0",
 )
