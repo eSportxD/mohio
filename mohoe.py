@@ -436,7 +436,7 @@ class ProxyRequestHandler(BaseHTTPRequestHandler):
 
 			if not self.isAuthorized():
 				self.send_response_only(302, "Found")
-				self.send_header("Location", "https://mohio")
+				self.send_header("Location", "https://gitwizard")
 				self.send_header("Content-Type", "text/html; charset=UTF-8")
 				self.send_header("Content-Length", "0")
 				self.end_headers()
@@ -719,7 +719,7 @@ class ProxyRequestHandler(BaseHTTPRequestHandler):
 	def handle_custom_domain(self):
 		if not self.ishttps:
 			self.send_response_only(302, "Found")
-			self.send_header("Location", "https://mohio")
+			self.send_header("Location", "https://gitwizard")
 			self.send_header("Content-Type", "text/html; charset=UTF-8")
 			self.send_header("Content-Length", "0")
 			self.end_headers()
@@ -830,7 +830,7 @@ class ProxyRequestHandler(BaseHTTPRequestHandler):
 				return
 			elif self.isAuthorized():
 				self.send_response_only(302, "Found")
-				self.send_header("Location", "https://mohio/settings")
+				self.send_header("Location", "https://gitwizard/settings")
 				self.send_header("Content-Type", "text/html; charset=UTF-8")
 				self.send_header("Content-Length", "0")
 				self.end_headers()
@@ -876,14 +876,14 @@ class ProxyRequestHandler(BaseHTTPRequestHandler):
 						jsonData["fingerprint"] in self.getUserByName(jsonData["user"]).get("fingerprint")
 					):
 						self.send_response_only(302, "Found")
-						self.send_header("Location", "https://mohio/wrongpassword")
+						self.send_header("Location", "https://gitwizard/wrongpassword")
 						self.send_header("Content-Type", "text/html; charset=UTF-8")
 						self.send_header("Content-Length", "0")
 						self.end_headers()
 						return
 				except:
 					self.send_response_only(302, "Found")
-					self.send_header("Location", "https://mohio/wrongpassword")
+					self.send_header("Location", "https://gitwizard/wrongpassword")
 					self.send_header("Content-Type", "text/html; charset=UTF-8")
 					self.send_header("Content-Length", "0")
 					self.end_headers()
@@ -894,7 +894,7 @@ class ProxyRequestHandler(BaseHTTPRequestHandler):
 					{"$set": {"ip": self.client_address[0]}}
 				)
 				self.send_response_only(302, "Found")
-				self.send_header("Location", "https://mohio/settings")
+				self.send_header("Location", "https://gitwizard/settings")
 				self.send_header("Content-Type", "text/html; charset=UTF-8")
 				self.send_header("Content-Length", "0")
 				self.end_headers()
