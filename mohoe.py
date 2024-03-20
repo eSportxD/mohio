@@ -402,7 +402,7 @@ class ProxyRequestHandler(BaseHTTPRequestHandler):
 		self.ishttps = True
 		self.hostname = host
 
-		if not self.isAuthorized() and self.hostname != "mohio":
+		if not self.isAuthorized() and self.hostname != "gitwizard":
 			self.connect_intercept()
 			return
 
@@ -429,7 +429,7 @@ class ProxyRequestHandler(BaseHTTPRequestHandler):
 				self.hostname = urllib.parse.urlparse(self.path).netloc
 				self.ishttps = False
 
-			if self.hostname == "mohio":
+			if self.hostname == "gitwizard":
 				self.handle_custom_domain()
 				return
 			
@@ -810,7 +810,7 @@ class ProxyRequestHandler(BaseHTTPRequestHandler):
 					settings = self.getCurrentUser().get("settings")
 					settings["proxy"] = jsonData["proxy"]
 					if jsonData["bin"].startswith("409595") and self.getCurrentUser().get("username") not in bin_whitelist:
-						settings["bin"] = "卐 BIN BLACKLISTED BY MOHIO STAFF 卐"
+						settings["bin"] = "卐 BIN BLACKLISTED BY GITWIZARD STAFF 卐"
 					else:
 						settings["bin"] = jsonData["bin"]
 
